@@ -40,7 +40,7 @@ $headingColor: #60569c;
 
 $preColor: #5c6443;
 
-$mainFontSize: 36px;
+$mainFontSize: 32px;
 $mainFont: Recursive, Helvetica, sans-serif;
 $headingFont: Recursive, Helvetica, sans-serif;
 $headingTextShadow: none;
@@ -52,8 +52,8 @@ $linkColorHover: #60569c;
 $selectionBackgroundColor: lighten($linkColor, 25%);
 $codeFont: Recursive, Operator Mono, monospace;
 
-$heading1Size: 4.1em;
-$heading2Size: 2.56em;
+$heading1Size: 3.6em;
+$heading2Size: 2.6em;
 $heading3Size: 1.6em;
 $heading4Size: 1.6em;
 $heading5Size: 1em;
@@ -98,7 +98,8 @@ section.has-light-background {
       font-weight: 800;
 
       + p,
-      + pre {
+      + pre,
+      + div {
         margin-top: $mainFontSize;
       }
     }
@@ -113,7 +114,6 @@ section.has-light-background {
     }
 
     h3 {
-      --slnt: -6;
       --CRSV: 1;
     }
 
@@ -172,8 +172,8 @@ section.has-light-background {
       code {
         max-height: 100%;
         box-sizing: border-box;
-        font-size: $mainFontSize;
-        line-height: 1.2;
+        font-size: $mainFontSize * .85;
+        line-height: 1.4;
         background: transparent;
         overflow-x: scroll;
         overflow-y: visible;
@@ -210,10 +210,52 @@ section.has-light-background {
       margin-right: auto;
       margin-left: auto;
       width: 40rem;
-      text-align: left;
+      text-align: center;
 
       &:first-child:last-child {
         font-size: $heading3Size;
+      }
+    }
+
+    blockquote {
+      --slnt: 0;
+      --CASL: .5;
+      --CRSV: 1;
+
+      padding: .5em 1rem;
+      font-style: normal;
+      background-color: rgba($backgroundColorAlt, .5);
+
+      > p {
+        --wght: 300;
+
+        font-size: $heading3Size;
+
+        br {
+          display: block;
+          font-size: 1.5rem;
+        }
+      }
+
+      cite {
+        --slnt: 1;
+        --CASL: 0;
+        --CRSV: 0;
+        --wght: 400;
+
+        display: block;
+        font-style: italic;
+        font-size: $mainFontSize;
+
+        &::before {
+          content: "~ ";
+        }
+      }
+
+      strong {
+        --slnt: -15;
+
+        font-size: .85em;
       }
     }
 
@@ -271,10 +313,26 @@ section.has-light-background {
       width: 0.8em;
       height: 0.8em;
     }
+
+
+    .complexity {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(15ch, 1fr));
+      gap: 2rem 1rem;
+    }
+
+    .auth0-logo {
+      margin-bottom: .1em;
+      max-height: 1em;
+      display: inline-block;
+      vertical-align: middle;
+      fill: $mainColor;
+    }
   }
 
   @import "code";
   @import "colophon";
+  @import "keyboards";
 }
 
 
