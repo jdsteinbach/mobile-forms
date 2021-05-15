@@ -32,7 +32,7 @@
       <div class="slides">
         
           <section >
-  <h1 class="v-tilt v-tilt--large big">Building Forms<br/><em>Mobile Users</em><br/>Will Love</h1>
+  <h1>Building Forms <br/>Mobile Users <br/>Will Love</h1>
 
 </section>
 
@@ -145,16 +145,8 @@ contain special characters.<span class="hljs-tag">&lt;/<span class="hljs-name">p
 
         
           <section >
-  <p><img src="./images/input-type-date.png" alt="input with type date"></p>
-<p><a href="https://www.w3.org/TR/html-aam-1.0/#details-id-58"><code>input[type=&quot;date&quot;]</code><br>
-A11Y API Mappings (AAM)</a></p>
-
-</section>
-
-        
-          <section >
-  <p><img src="./images/input-type-number.png" alt="input with type date"></p>
-<p><a href="https://www.w3.org/TR/html-aam-1.0/#details-id-65"><code>input[type=&quot;number&quot;]</code><br>
+  <p><img src="./images/input-type-password.png" alt="input with type password"></p>
+<p><a href="https://www.w3.org/TR/html-aam-1.0/#details-id-66"><code>input[type=&quot;password&quot;]</code><br>
 A11Y API Mappings (AAM)</a></p>
 
 </section>
@@ -164,6 +156,7 @@ A11Y API Mappings (AAM)</a></p>
   <h3><code>autocomplete</code></h3>
 <p>Tells browsers what user data to offer as autocomplete options.</p>
 <p>Mapped to accessibility state.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete">MDN</a></p>
 
 </section>
 
@@ -180,6 +173,7 @@ A11Y API Mappings (AAM)</a></p>
   <h3><code>inputmode</code></h3>
 <p>Suggests the ideal on-screen keyboard for mobile devices.</p>
 <p>No accessibility mappings.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode">MDN</a></p>
 
 </section>
 
@@ -267,15 +261,29 @@ A11Y API Mappings (AAM)</a></p>
         
           <section >
   <h3>Number</h3>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+  <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+/&gt;</span>
+</code></pre>
+<p>“inappropriate for credit card numbers or US postal codes”<br>
+(<a href="https://html.spec.whatwg.org/multipage/input.html#when-number-is-not-appropriate">HTML Spec</a>)</p>
+
+</section>
+
+        
+          <section >
+  <h3>Number</h3>
 <div class="keyboards">
 <pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span>
   <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
   <span class="hljs-attr">inputmode</span>=<span class="hljs-string">&quot;decimal&quot;</span>
+  <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;[0-9]*&quot;</span>
 /&gt;</span>
 </code></pre>
 <p><img src="./images/android-number.png" alt="Android keyboard: number"></p>
 <p><img src="./images/ios-number.png" alt="iOS keyboard: number"></p>
 </div>
+<p><a href="https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/">GOV.UK Number Inputs</a></p>
 <p><a href="https://kilianvalkhof.com/2020/javascript/supercharging-input-type-number/">Supercharged Number Inputs</a></p>
 
 </section>
@@ -337,7 +345,7 @@ A11Y API Mappings (AAM)</a></p>
   <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>Start Date<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;month&quot;</span>&gt;</span>Month (MM)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;month&quot;</span> <span class="hljs-attr">inputmode</span>=<span class="hljs-string">&quot;decimal&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;month&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">inputmode</span>=<span class="hljs-string">&quot;decimal&quot;</span> /&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;day&quot;</span>&gt;</span>Day (DD)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;day&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">inputmode</span>=<span class="hljs-string">&quot;decimal&quot;</span> /&gt;</span>
@@ -366,6 +374,17 @@ A11Y API Mappings (AAM)</a></p>
 <ul>
 <li>Prevent iOS zoom with minimum <code>font-size</code> of <code>16px</code></li>
 <li>Use a single column layout</li>
+</ul>
+
+</section>
+
+        
+          <section >
+  <p><em>By solving a11y issues at the<br>
+semantic level, we…</em></p>
+<ul>
+<li><span aria-hidden="true">✓ </span>improve UIs for existing technology</li>
+<li><span aria-hidden="true">✓ </span>future-proof them for years to come</li>
 </ul>
 
 </section>
