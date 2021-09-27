@@ -34,25 +34,25 @@ $green:     #859900;
 
 
 // Override theme settings (see ../template/settings.scss)
-$backgroundColor: #ebecf0;
-$backgroundColorAlt: #dac935;
+$backgroundColor: #000;
+$backgroundColorAlt: #000;
 
-$mainColor: #2c313e;
-$headingColor: #60569c;
+$mainColor: #fff;
+$headingColor: rgba($mainColor, .85);
 
-$preColor: #5c6443;
+$preColor: #3FB1A3;
 
 $mainFontSize: 32px;
-$mainFont: Recursive, Helvetica, sans-serif;
-$headingFont: Recursive, Helvetica, sans-serif;
+$mainFont: Lato, Helvetica, sans-serif;
+$headingFont: $mainFont;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingFontWeight: 700;
-$linkColor: #5c6443;
-$linkColorHover: #60569c;
+$linkColor: mix(#04619f, $mainColor, 25%);
+$linkColorHover: lighten($linkColor, 10%);
 $selectionBackgroundColor: lighten($linkColor, 25%);
-$codeFont: Recursive, Operator Mono, monospace;
+$codeFont: SF Mono, Operator Mono, monospace;
 
 $heading1Size: 3.6em;
 $heading2Size: 2.6em;
@@ -61,24 +61,37 @@ $heading4Size: 1.6em;
 $heading5Size: 1em;
 $heading6Size: 1em;
 
-body {
-  font-feature-settings: "liga";
-}
-
 section.has-light-background {
 	&, h1, h2, h3, h4, h5, h6 {
-		color: #222;
+		color: $backgroundColor;
 	}
 }
 
 .reveal {
+  background-attachment: fixed;
+  background-image:
+    url("https://js.la/assets/css/images/light-bl.svg"),
+    url("https://js.la/assets/css/images/light-br.svg"),
+    url("https://js.la/assets/css/images/overlay.png"),
+    linear-gradient(147deg, #000000 0%, #04619f 74%);
+  background-color: #000000;
+  background-position:
+    bottom left,
+    bottom right,
+    top left,
+    top center;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    repeat,
+    no-repeat;
+  background-size:
+    25vw,
+    25vw,
+    auto,
+    cover;
+
   * {
-    font-variation-settings:
-      "MONO" var(--MONO, 0),
-      "CASL" var(--CASL, 0),
-      "CRSV" var(--CRSV, 0),
-      "wght" var(--wght, 400),
-      "slnt" var(--slnt, 0);
     font-feature-settings:
       "liga" var(--liga, 1),
       "kern" var(--kern, 1);
@@ -86,18 +99,18 @@ section.has-light-background {
 
   section {
     h1 {
-      --wght: 900;
-      --CASL: .67;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: math.div(1em, 32);
 
-      font-weight: 900;
+      strong {
+        font-weight: 900;
+      }
     }
 
     h2, h3, h4, h5, h6 {
-      --wght: 800;
-      --CASL: .33;
-
       text-transform: none;
-      font-weight: 800;
+      font-weight: 700;
 
       + p,
       + pre,
@@ -106,17 +119,17 @@ section.has-light-background {
       }
     }
 
-    h2 + h3 {
-      --wght: 600;
-
-      font-family: $mainFont;
-      text-transform: none;
-      font-weight: 600;
-      color: $mainColor;
+    h1 strong, h2 {
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(#22F5F4, #00898B);
+      background-clip: text;
     }
 
-    h3 {
-      --CRSV: 1;
+    h2 + h3 {
+      font-family: $mainFont;
+      text-transform: none;
+      font-weight: 400;
+      color: $mainColor;
     }
 
     h2 .h1 {
@@ -132,13 +145,6 @@ section.has-light-background {
       em {
         font-style: italic;
         border-bottom: .125em solid currentColor;
-
-        @supports (font-variation-settings: initial) {
-          --CRSV: 1;
-          --slnt: -12;
-
-          font-style: normal;
-        }
       }
     }
 
@@ -151,12 +157,9 @@ section.has-light-background {
     }
 
     code {
-      --MONO: 1;
-      --CASL: 0;
-      --CRSV: 0;
-
       padding: 0 .25ch;
-      background-color: rgba($linkColor, .15);
+      background-color: rgba($backgroundColor, .15);
+      border-radius: .25ch;
     }
 
     pre {
@@ -168,7 +171,7 @@ section.has-light-background {
       padding: 1ch;
       box-sizing: border-box;
       box-shadow: none;
-      background-color: rgba($preColor, .15);
+      background-color: rgba(#000, .5);
       color: $preColor;
 
       code {
@@ -182,10 +185,8 @@ section.has-light-background {
       }
 
       mark {
-        --wght: 800;
-
         padding: 0 .25em;
-        font-weight: 800;
+        font-weight: 900;
         color: #fff;
         background-color: rgba(#000, .2);
       }
@@ -199,16 +200,10 @@ section.has-light-background {
     }
 
     li {
-      --CASL: .33;
-      --CRSV: 1;
-
       margin-top: math.div($mainFontSize, 2);
     }
 
     p {
-      --CASL: .33;
-      --CRSV: 1;
-
       margin-right: auto;
       margin-left: auto;
       width: 40rem;
@@ -220,17 +215,34 @@ section.has-light-background {
     }
 
     blockquote {
-      --slnt: 0;
-      --CASL: .5;
-      --CRSV: 1;
-
-      padding: .5em 1rem;
+      padding: 2rem 0rem;
+      position: relative;
       font-style: normal;
-      background-color: rgba($backgroundColorAlt, .5);
+      border: solid currentColor;
+      border-width: 2px 0;
+      background: transparent;
+
+      &::before,
+      &::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        display: block;
+        position: absolute;
+        background: currentColor;
+      }
+
+      &::before {
+        top: -12px;
+        left: 0;
+      }
+
+      &::after {
+        bottom: -12px;
+        left: 0;
+      }
 
       > p {
-        --wght: 300;
-
         font-size: $heading3Size;
 
         br {
@@ -240,12 +252,9 @@ section.has-light-background {
       }
 
       cite {
-        --slnt: 1;
-        --CASL: 0;
-        --CRSV: 0;
-        --wght: 400;
-
+        margin-top: 2rem;
         display: block;
+        text-align: right;
         font-style: italic;
         font-size: $mainFontSize;
 
@@ -255,38 +264,21 @@ section.has-light-background {
       }
 
       strong {
-        --slnt: -15;
-
         font-size: .85em;
       }
     }
 
     i, em {
       font-style: italic;
-
-      @supports (font-variation-settings: initial) {
-        --CRSV: 1;
-        --slnt: -12;
-
-        font-style: normal;
-      }
     }
 
     b, strong {
       font-weight: bold;
-
-      @supports (font-variation-settings: initial) {
-        --wght: 800;
-      }
     }
 
     th {
       font-weight: bold;
       font-style: normal;
-
-      @supports (font-variation-settings: initial) {
-        --wght: 800;
-      }
     }
 
     .sr-only {
