@@ -16,27 +16,21 @@
 }
 
 .colophon__logo {
+  padding: 1rem 5vw 1rem 0;
   width: 15vw;
 
-  svg {
-    height: auto;
+  img {
+    height: 8vh;
     width: 100%;
     display: block;
+    object-fit: contain;
+    object-position: left center;
   }
 }
 
 .colophon__link {
   padding: .4em 1em .6em;
-  opacity: .75;
   font-family: $codeFont;
   font-style: italic;
   font-size: math.div(1em, 1.5);
-  background-color: $backgroundColor;
-
-  @supports (font-variation-settings: initial) {
-    --slnt: -12;
-    --MONO: 1;
-
-    font-style: normal;
-  }
 }
