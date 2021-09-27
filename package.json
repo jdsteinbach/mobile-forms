@@ -18,13 +18,13 @@
   "author": "James Steinbach",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0",
-    "autoprefixer": "^9.8.5",
-    "cssnano": "^4.1.10",
+    "@11ty/eleventy": "^0.11.1",
+    "autoprefixer": "^9.8.7",
+    "cssnano": "^4.1.11",
     "markdown-it": "^10.0.0",
-    "markdown-it-highlightjs": "^3.1.0",
-    "postcss": "^7.0.32",
-    "sass": "^1.26.10"
+    "markdown-it-highlightjs": "^3.5.0",
+    "postcss": "^7.0.38",
+    "sass": "^1.42.1"
   },
   "dependencies": {
     "reveal.js": "^3.9.2"
