@@ -30,7 +30,7 @@
   opacity: .75;
   font-family: $codeFont;
   font-style: italic;
-  font-size: (1em / 1.5);
+  font-size: math.div(1em, 1.5);
   background-color: $backgroundColor;
 
   @supports (font-variation-settings: initial) {

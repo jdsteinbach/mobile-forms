@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /**
  * Black theme for reveal.js. This is the opposite of the 'white' theme.
  *
@@ -200,7 +202,7 @@ section.has-light-background {
       --CASL: .33;
       --CRSV: 1;
 
-      margin-top: ($mainFontSize / 2);
+      margin-top: math.div($mainFontSize, 2);
     }
 
     p {
