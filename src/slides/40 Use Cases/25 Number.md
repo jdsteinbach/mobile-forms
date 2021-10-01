@@ -6,7 +6,6 @@
   <input
     type="text"
     inputmode="decimal"
-    pattern="[0-9]*"
   />
   ```
 
