@@ -6,6 +6,9 @@
   <input
     type="text"
     autocomplete="username"
+    autocapitalize="none"
+    autocorrect="off"
+    spellcheck="false"
   />
   ```
 
