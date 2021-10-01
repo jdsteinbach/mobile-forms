@@ -117,7 +117,7 @@
   <h3>Foundation</h3>
 <pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;username&quot;</span>&gt;</span>Username<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;username&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
-  <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;username-hint&quot;</span>&gt;</span>
+  <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;username-hint&quot;</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;username-hint&quot;</span>&gt;</span>Username must be
 at least 8 characters long and cannot
 contain special characters.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -186,25 +186,14 @@ A11Y API Mappings (AAM)</a></p>
 <pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span>
   <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
   <span class="hljs-attr">autocomplete</span>=<span class="hljs-string">&quot;username&quot;</span>
+  <span class="hljs-attr">autocapitalize</span>=<span class="hljs-string">&quot;none&quot;</span>
+  <span class="hljs-attr">autocorrect</span>=<span class="hljs-string">&quot;off&quot;</span>
+  <span class="hljs-attr">spellcheck</span>=<span class="hljs-string">&quot;false&quot;</span>
 /&gt;</span>
 </code></pre>
 <p><img src="./images/android-username.png" alt="Android keyboard: username"></p>
 <p><img src="./images/ios-username.png" alt="iOS keyboard: username"></p>
 </div>
-
-</section>
-
-        
-          <section >
-  <h3>Username</h3>
-<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-  <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
-  <span class="hljs-attr">autocomplete</span>=<span class="hljs-string">&quot;username&quot;</span>
-  <span class="hljs-attr">autocorrect</span>=<span class="hljs-string">&quot;off&quot;</span>
-  <span class="hljs-attr">autocapitalize</span>=<span class="hljs-string">&quot;none&quot;</span>
-  <span class="hljs-attr">spellcheck</span>=<span class="hljs-string">&quot;false&quot;</span>
-/&gt;</span>
-</code></pre>
 
 </section>
 
@@ -273,7 +262,6 @@ A11Y API Mappings (AAM)</a></p>
 <pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span>
   <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
   <span class="hljs-attr">inputmode</span>=<span class="hljs-string">&quot;decimal&quot;</span>
-  <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;[0-9]*&quot;</span>
 /&gt;</span>
 </code></pre>
 <p><img src="./images/android-number.png" alt="Android keyboard: number"></p>
