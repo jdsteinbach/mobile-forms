@@ -4,32 +4,61 @@
  * By Hakim El Hattab, http://hakim.se
  */
 @font-face {
-  font-family: Recursive;
-  src: url("../../fonts/recursive-subset.woff2") format("woff2-variations");
-  font-weight: 300 900;
+  font-family: Lato;
+  src: url("../../fonts/LatoLatin-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
 }
-body {
-  font-feature-settings: "liga";
+@font-face {
+  font-family: Lato;
+  src: url("../../fonts/LatoLatin-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
 }
-
+@font-face {
+  font-family: Lato;
+  src: url("../../fonts/LatoLatin-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: Lato;
+  src: url("../../fonts/LatoLatin-BoldItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 700;
+}
+@font-face {
+  font-family: Lato;
+  src: url("../../fonts/LatoLatin-Black.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 900;
+}
 section.has-light-background, section.has-light-background h1, section.has-light-background h2, section.has-light-background h3, section.has-light-background h4, section.has-light-background h5, section.has-light-background h6 {
-  color: #222;
+  color: #000;
 }
 
+.reveal {
+  background-attachment: fixed;
+  background-image: url("https://js.la/assets/css/images/light-bl.svg"), url("https://js.la/assets/css/images/light-br.svg"), url("https://js.la/assets/css/images/overlay.png"), linear-gradient(147deg, #000000 0%, #04619f 74%);
+  background-color: #000000;
+  background-position: bottom left, bottom right, top left, top center;
+  background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+  background-size: 25vw, 25vw, auto, cover;
+}
 .reveal * {
-  font-variation-settings: "MONO" var(--MONO, 0), "CASL" var(--CASL, 0), "CRSV" var(--CRSV, 0), "wght" var(--wght, 400), "slnt" var(--slnt, 0);
   font-feature-settings: "liga" var(--liga, 1), "kern" var(--kern, 1);
 }
 .reveal section h1 {
-  --wght: 900;
-  --CASL: .67;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.03125em;
+}
+.reveal section h1 strong {
   font-weight: 900;
 }
 .reveal section h2, .reveal section h3, .reveal section h4, .reveal section h5, .reveal section h6 {
-  --wght: 800;
-  --CASL: .33;
   text-transform: none;
-  font-weight: 800;
+  font-weight: 700;
 }
 .reveal section h2 + p,
 .reveal section h2 + pre,
@@ -44,21 +73,23 @@ section.has-light-background, section.has-light-background h1, section.has-light
 .reveal section h6 + div {
   margin-top: 32px;
 }
-.reveal section h2 + h3 {
-  --wght: 600;
-  font-family: Recursive, Helvetica, sans-serif;
-  text-transform: none;
-  font-weight: 600;
-  color: #2c313e;
+.reveal section h1 strong, .reveal section h2 {
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(#22F5F4, #00898B);
+  -webkit-background-clip: text;
+          background-clip: text;
 }
-.reveal section h3 {
-  --CRSV: 1;
+.reveal section h2 + h3 {
+  font-family: Lato, Helvetica, sans-serif;
+  text-transform: none;
+  font-weight: 400;
+  color: #fff;
 }
 .reveal section h2 .h1 {
   margin-bottom: 0.125em;
   padding-bottom: 0.125em;
   display: block;
-  font-family: Recursive, Helvetica, sans-serif;
+  font-family: Lato, Helvetica, sans-serif;
   font-size: 1.6em;
   border-bottom: 0.15em solid currentColor;
 }
@@ -66,22 +97,13 @@ section.has-light-background, section.has-light-background h1, section.has-light
   font-style: italic;
   border-bottom: 0.125em solid currentColor;
 }
-@supports (font-variation-settings: initial) {
-  .reveal section h1 em, .reveal section h2 em, .reveal section h3 em, .reveal section h4 em, .reveal section h5 em, .reveal section h6 em {
-    --CRSV: 1;
-    --slnt: -12;
-    font-style: normal;
-  }
-}
 .reveal section a, .reveal section a:hover, .reveal section a:active {
   text-decoration: underline !important;
 }
 .reveal section code {
-  --MONO: 1;
-  --CASL: 0;
-  --CRSV: 0;
   padding: 0 0.25ch;
-  background-color: rgba(92, 100, 67, 0.15);
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 0.25ch;
 }
 .reveal section pre {
   margin-right: auto;
@@ -92,8 +114,8 @@ section.has-light-background, section.has-light-background h1, section.has-light
   padding: 1ch;
   box-sizing: border-box;
   box-shadow: none;
-  background-color: rgba(92, 100, 67, 0.15);
-  color: #5c6443;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #3FB1A3;
 }
 .reveal section pre code {
   max-height: 100%;
@@ -105,9 +127,8 @@ section.has-light-background, section.has-light-background h1, section.has-light
   overflow-y: visible;
 }
 .reveal section pre mark {
-  --wght: 800;
   padding: 0 0.25em;
-  font-weight: 800;
+  font-weight: 900;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.2);
 }
@@ -118,13 +139,9 @@ section.has-light-background, section.has-light-background h1, section.has-light
   max-width: 40rem;
 }
 .reveal section li {
-  --CASL: .33;
-  --CRSV: 1;
   margin-top: 16px;
 }
 .reveal section p {
-  --CASL: .33;
-  --CRSV: 1;
   margin-right: auto;
   margin-left: auto;
   width: 40rem;
@@ -134,15 +151,30 @@ section.has-light-background, section.has-light-background h1, section.has-light
   font-size: 1.6em;
 }
 .reveal section blockquote {
-  --slnt: 0;
-  --CASL: .5;
-  --CRSV: 1;
-  padding: 0.5em 1rem;
+  padding: 2rem 0rem;
+  position: relative;
   font-style: normal;
-  background-color: rgba(218, 201, 53, 0.5);
+  border: solid currentColor;
+  border-width: 2px 0;
+  background: transparent;
+}
+.reveal section blockquote::before, .reveal section blockquote::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  display: block;
+  position: absolute;
+  background: currentColor;
+}
+.reveal section blockquote::before {
+  top: -12px;
+  left: 0;
+}
+.reveal section blockquote::after {
+  bottom: -12px;
+  left: 0;
 }
 .reveal section blockquote > p {
-  --wght: 300;
   font-size: 1.6em;
 }
 .reveal section blockquote > p br {
@@ -150,11 +182,9 @@ section.has-light-background, section.has-light-background h1, section.has-light
   font-size: 1.5rem;
 }
 .reveal section blockquote cite {
-  --slnt: 1;
-  --CASL: 0;
-  --CRSV: 0;
-  --wght: 400;
+  margin-top: 2rem;
   display: block;
+  text-align: right;
   font-style: italic;
   font-size: 32px;
 }
@@ -162,35 +192,17 @@ section.has-light-background, section.has-light-background h1, section.has-light
   content: "~ ";
 }
 .reveal section blockquote strong {
-  --slnt: -15;
   font-size: 0.85em;
 }
 .reveal section i, .reveal section em {
   font-style: italic;
 }
-@supports (font-variation-settings: initial) {
-  .reveal section i, .reveal section em {
-    --CRSV: 1;
-    --slnt: -12;
-    font-style: normal;
-  }
-}
 .reveal section b, .reveal section strong {
   font-weight: bold;
-}
-@supports (font-variation-settings: initial) {
-  .reveal section b, .reveal section strong {
-    --wght: 800;
-  }
 }
 .reveal section th {
   font-weight: bold;
   font-style: normal;
-}
-@supports (font-variation-settings: initial) {
-  .reveal section th {
-    --wght: 800;
-  }
 }
 .reveal section .sr-only {
   position: absolute;
@@ -205,10 +217,10 @@ section.has-light-background, section.has-light-background h1, section.has-light
   display: inline-flex;
   align-items: center;
   border-radius: 0.125em;
-  background-color: rgba(218, 201, 53, 0.25);
+  background-color: rgba(0, 0, 0, 0.25);
 }
 .reveal section .link:hover, .reveal section .link:active {
-  background-color: rgba(96, 86, 156, 0.15);
+  background-color: rgba(229, 239, 245, 0.15);
 }
 .reveal section .link__icon {
   width: 0.8em;
@@ -224,31 +236,31 @@ section.has-light-background, section.has-light-background h1, section.has-light
   max-height: 1em;
   display: inline-block;
   vertical-align: middle;
-  fill: #2c313e;
+  fill: #fff;
 }
 .reveal .hljs-keyword, .reveal .hljs-built_in, .reveal .hljs-type, .reveal .hljs-literal, .reveal .hljs-number, .reveal .hljs-regexp, .reveal .hljs-string, .reveal .hljs-subst, .reveal .hljs-symbol, .reveal .hljs-class, .reveal .hljs-function, .reveal .hljs-title, .reveal .hljs-params {
-  color: #3d3d5d;
+  color: rgba(255, 255, 255, 0.9505);
 }
 .reveal .hljs-comment, .reveal .hljs-doctag, .reveal .hljs-meta, .reveal .hljs-meta-keyword, .reveal .hljs-meta-string {
-  color: #4c5341;
+  color: #7ecbc1;
 }
 .reveal .hljs-section, .reveal .hljs-tag, .reveal .hljs-builtin-name, .reveal .hljs-attribute, .reveal .hljs-variable {
-  color: rgba(44, 49, 62, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 .reveal .hljs-bullet, .reveal .hljs-code, .reveal .hljs-emphasis, .reveal .hljs-strong, .reveal .hljs-formula, .reveal .hljs-link, .reveal .hljs-quote {
-  color: #46446d;
+  color: rgba(255, 255, 255, 0.925);
 }
 .reveal .hljs-selector-tag, .reveal .hljs-name, .reveal .hljs-selector-id, .reveal .hljs-selector-class, .reveal .hljs-selector-attr, .reveal .hljs-selector-pseudo {
-  color: #3c4240;
+  color: #c0e5e1;
 }
 .reveal .hljs-template-tag, .reveal .hljs-template-variable {
-  color: #2c313e;
+  color: #fff;
 }
 .reveal .hljs-addition, .reveal .hljs-deletion {
-  color: rgba(44, 49, 62, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 .reveal .hljs-attr, .reveal .hljs-operator, .reveal .hljs-pattern-match, .reveal .hljs-typing, .reveal .hljs-constructor, .reveal .hljs-module-access, .reveal .hljs-module {
-  color: #5c6443;
+  color: #3FB1A3;
 }
 .reveal .colophon {
   display: flex;
@@ -266,27 +278,23 @@ section.has-light-background, section.has-light-background h1, section.has-light
   width: 15vw;
 }
 .reveal .colophon__logo {
+  padding: 1rem 5vw 1rem 0;
   width: 15vw;
 }
-.reveal .colophon__logo svg {
-  height: auto;
+.reveal .colophon__logo img {
+  height: 8vh;
   width: 100%;
   display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: left center;
+     object-position: left center;
 }
 .reveal .colophon__link {
   padding: 0.4em 1em 0.6em;
-  opacity: 0.75;
-  font-family: Recursive, Operator Mono, monospace;
+  font-family: SF Mono, Operator Mono, monospace;
   font-style: italic;
   font-size: 0.6666666667em;
-  background-color: #ebecf0;
-}
-@supports (font-variation-settings: initial) {
-  .reveal .colophon__link {
-    --slnt: -12;
-    --MONO: 1;
-    font-style: normal;
-  }
 }
 .reveal .keyboards,
 .reveal .dates {
@@ -317,32 +325,32 @@ section.has-light-background, section.has-light-background h1, section.has-light
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #ebecf0;
-  background-color: #ebecf0;
+  background: #000;
+  background-color: #000;
 }
 
 .reveal {
-  font-family: Recursive, Helvetica, sans-serif;
+  font-family: Lato, Helvetica, sans-serif;
   font-size: 32px;
   font-weight: normal;
-  color: #2c313e;
+  color: #fff;
 }
 
 ::-moz-selection {
   color: #fff;
-  background: #9ea97e;
+  background: white;
   text-shadow: none;
 }
 
 ::selection {
   color: #fff;
-  background: #9ea97e;
+  background: white;
   text-shadow: none;
 }
 
 ::-moz-selection {
   color: #fff;
-  background: #9ea97e;
+  background: white;
   text-shadow: none;
 }
 
@@ -362,8 +370,8 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #60569c;
-  font-family: Recursive, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: Lato, Helvetica, sans-serif;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: normal;
@@ -484,14 +492,14 @@ body {
   margin: 20px auto;
   text-align: left;
   font-size: 0.55em;
-  font-family: Recursive, Operator Mono, monospace;
+  font-family: SF Mono, Operator Mono, monospace;
   line-height: 1.2em;
   word-wrap: break-word;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .reveal code {
-  font-family: Recursive, Operator Mono, monospace;
+  font-family: SF Mono, Operator Mono, monospace;
   text-transform: none;
 }
 
@@ -560,20 +568,20 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #5c6443;
+  color: #c0d8e7;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .reveal a:hover {
-  color: #60569c;
+  color: #e5eff5;
   text-shadow: none;
   border: none;
 }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #323624;
+  background: #89b6d2;
 }
 
 /*********************************************
@@ -582,7 +590,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #2c313e;
+  border: 4px solid #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -597,7 +605,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #5c6443;
+  border-color: #c0d8e7;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
 }
 
@@ -605,7 +613,7 @@ body {
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #5c6443;
+  color: #c0d8e7;
 }
 
 /*********************************************
@@ -613,7 +621,7 @@ body {
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #5c6443;
+  color: #c0d8e7;
 }
 
 .reveal .progress span {
@@ -625,6 +633,6 @@ body {
  *********************************************/
 @media print {
   .backgrounds {
-    background-color: #ebecf0;
+    background-color: #000;
   }
 }
